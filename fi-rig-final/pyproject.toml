@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fi-host"
+version = "1.0.0"
+description = "ESP32-S3 Fault Injection Rig - host control software"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = [
+    "pyserial>=3.5",
+    "rich>=13.0",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "websockets>=12.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "typer>=0.12",
+    "pydantic>=2.0",
+    "aiofiles>=23.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "pytest-asyncio>=0.23",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+fi        = "fi_host.cli.main:app"
+fi-server = "fi_host.server:main"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["fi_host*"]

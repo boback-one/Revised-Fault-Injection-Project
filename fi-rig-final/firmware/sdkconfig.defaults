@@ -1,0 +1,41 @@
+# ── Target ───────────────────────────────────────────────────────────────────
+CONFIG_IDF_TARGET="esp32s3"
+
+# ── CPU frequency: 240 MHz for best RMT timing accuracy ──────────────────────
+CONFIG_ESP32S3_DEFAULT_CPU_FREQ_240=y
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ=240
+
+# ── USB-CDC console (ESP32-S3 DevKit uses USB-OTG for UART-over-USB) ─────────
+# This makes the board appear as a COM port without a CH340/CP210x driver.
+CONFIG_ESP_CONSOLE_USB_CDC=y
+CONFIG_ESP_CONSOLE_SECONDARY_NONE=y
+
+# ── UART ISR in IRAM for lowest latency command processing ───────────────────
+CONFIG_UART_ISR_IN_IRAM=y
+
+# ── FreeRTOS: 1 kHz tick, no tickless idle (timing-critical) ─────────────────
+CONFIG_FREERTOS_HZ=1000
+CONFIG_FREERTOS_USE_TICKLESS_IDLE=n
+
+# ── Stack sizes ───────────────────────────────────────────────────────────────
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+CONFIG_PTHREAD_TASK_STACK_SIZE_DEFAULT=4096
+
+# ── Compiler: optimize for performance (RMT/GPTimer timing) ──────────────────
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_ENABLE=y
+
+# ── Log level ─────────────────────────────────────────────────────────────────
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+CONFIG_LOG_MAXIMUM_LEVEL_DEBUG=y
+
+# ── Bootloader: reduce boot time ──────────────────────────────────────────────
+CONFIG_BOOTLOADER_LOG_LEVEL_WARN=y
+CONFIG_BOOTLOADER_SKIP_VALIDATE_IN_DEEP_SLEEP=y
+
+# ── Flash: 80 MHz QIO for fast code fetch ────────────────────────────────────
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+
+# ── PSRAM: disable unless your board has it ──────────────────────────────────
+CONFIG_ESP32S3_SPIRAM_SUPPORT=n

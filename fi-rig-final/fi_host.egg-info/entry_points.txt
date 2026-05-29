@@ -1,0 +1,3 @@
+[console_scripts]
+fi = fi_host.cli.main:app
+fi-server = fi_host.server:main
