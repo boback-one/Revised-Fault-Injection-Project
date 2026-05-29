@@ -1,0 +1,26 @@
+The .bin files 
+Application: fault_injector.bin
+Bootloader: bootloader.bin
+Partition: partition-table.bin
+
+use an "esptool" for flashing to your esp32 s3.
+ESP32 S3 Web Flasher https://esptool.spacehuhn.com
+This is all just in the begining phrase, do not attempt this unless you are an advance hardware tinker.
+I'm not responsible for any damage you may do or your actions.
+
+
+Flash File order
+Address bootloader.bin 0x0000
+Address partition-table.bin 0x8000
+Address fault_injector.bin 0x10000
+
+
+
+
+
+
+left blank 
+
+
+
+End
